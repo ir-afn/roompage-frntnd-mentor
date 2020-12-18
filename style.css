@@ -1,0 +1,274 @@
+@import url('https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap');
+
+html {
+    font-size: 10px;
+}
+
+body {
+    margin: 0;
+    font-family: 'Spartan', 'Roboto', sans-serif;
+    font-weight: 500;
+}
+
+*, *:before, *:after {
+	box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+	margin: 0;       
+}
+
+.hidden {
+    display: none;
+}
+
+.main-wrapper, .container {
+	width: 100%;
+	max-width: 375px;
+    margin: 0 auto;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    height: 8rem;
+    padding: 4rem 2.5rem 2rem;
+    z-index: 1;
+}
+
+.nav__desktop-menu {
+    width: 1px;
+    visibility: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.nav__burger-button {
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    width: 20px;
+
+    background-image: url('./images/icon-hamburger.svg');
+    background-position: center;
+    cursor: pointer;
+}
+
+.nav__burger-button:focus {
+    outline-color: hsl(0, 0%, 63%);
+    outline-width: 0.5px;
+}
+
+.main-wrapper {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+
+.slider__wrapper, .about {
+    max-width: 375px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.slider__item__photo {
+    max-width: 375px;
+}
+
+.slider__buttons {
+    position: absolute;
+    right: 0;
+    margin-top: -5.2rem;
+    height: 4.8rem;
+    background-color: black;
+}
+
+.slider__buttons > button {
+    display: inline-block;
+    width: 4.8rem;
+    height: 4.8rem;
+    margin: 0;
+    padding: 0;
+
+    background-color: black;
+    border: none;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+.slider__buttons > button:hover {
+    background-color: hsl(0, 0%, 27%);
+    transition: 0.3s;
+}
+
+.slider__buttons > button:focus {
+    background-color: hsl(0, 0%, 27%);
+    outline-color: hsl(0, 0%, 27%);
+    outline-width: 0.5px;
+}
+
+.slider__buttons-right {
+    background-image: url('./images/icon-angle-right.svg');
+}
+
+.slider__buttons-left {
+    background-image: url('./images/icon-angle-left.svg');  
+}
+
+.slider__item__text {
+    padding: 5.5rem 3rem;
+}
+
+.slider__item__text-heading {
+    font-size: 2.7rem;
+    font-weight: 700;
+    color: black;
+
+    margin-bottom: 2rem;
+}
+
+.slider__item__text-paragraph, .about__text-block__paragraph {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: hsl(0, 0%, 63%);
+    font-weight: normal;
+}
+
+.slider__item__text-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 63%;
+    text-decoration: none;
+    margin-top: 4.5rem;
+}
+
+.link--text {
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 0.7rem;
+    font-weight: 600;
+    color: black;
+    line-height: 1;
+}
+
+.link--image {
+    fill:#000;
+}
+
+.slider__item__text-link:hover > .link--text {
+    color: hsl(0, 0%, 63%);
+    transition: 0.3s;
+}
+
+.slider__item__text-link:hover > .link--image {
+    fill: hsl(0, 0%, 63%);
+    transition: 0.3s;
+}
+
+.about__image-block > img {
+    max-width: 375px;
+}
+
+.about__text-block {
+    padding: 4.5rem 3rem;
+} 
+
+.about__text-block__heading {
+    text-transform: uppercase;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.5rem;
+    margin-bottom: 1.2rem;
+}
+
+/*-------------------DESKTOP--------------------*/
+
+/* @media (min-width: 1100px) {
+
+    html {
+        font-size: 15px;
+    }
+
+    body {
+        background-color: lavender;
+    }
+
+    /* .main {
+        position: relative;
+    } */
+/*
+    .main-wrapper {
+        min-width: 1100px;
+    }/*кажется не используется*/
+/*
+    .nav__burger-button {
+        display: none;
+    }
+
+    .logo {
+        height: 1rem;
+    }
+
+    .nav {
+        justify-content: flex-start;
+        padding-left: 4rem;
+    }
+
+    .logo {
+        margin-right: 3.5rem;
+    }                         /*увеличить размер??*/
+/*
+    .nav__desktop-menu {
+        visibility: visible;
+        list-style: none;
+        padding-left: 0;
+        padding-top: 0.1rem;
+        margin: 0;
+        display: flex;
+    }
+
+    .desktop-menu__item a {
+        margin-right: 2rem;
+        text-decoration: none;
+        text-transform: lowercase;
+        font-size: 1rem;
+        font-weight: 500;
+        color: white;
+    }
+
+    .desktop-menu__item a:hover {/*псевдоэлемент??????*//*
+        padding-bottom: 0.5rem;
+        border-bottom: 3px solid white;
+        max-width: 1%; /*не работает. можно ли ограничить размер рамки*/
+    /*}
+/*
+    .slider__wrapper {
+        max-width: 1440px;
+    }
+
+    .slider__item {
+        display: flex;
+        flex-wrap: nowrap;
+    }
+
+    .hidden {
+        display: none;
+    }
+
+    .slider__item__photo {
+        width: 50%;
+    }
+
+    .slider__item__text {
+        width: 40%;
+    }
+
+} */
