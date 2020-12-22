@@ -22,13 +22,22 @@ h1, h2, h3, h4, h5, h6, p {
     display: none;
 }
 
-.main-wrapper, .container {
+.main-wrapper, .header-wrapper {
 	width: 100%;
 	max-width: 375px;
     margin: 0 auto;
 }
 
+.header-wrapper {
+    position: relative;
+}
+
 .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
     width: 100%;
     display: flex;
     flex-wrap: nowrap;
@@ -44,6 +53,7 @@ h1, h2, h3, h4, h5, h6, p {
     visibility: hidden;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 .nav__burger-button {
@@ -64,62 +74,14 @@ h1, h2, h3, h4, h5, h6, p {
     outline-width: 0.5px;
 }
 
-.main-wrapper {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-}
-
-
-.slider__wrapper, .about {
-    max-width: 375px;
+.slider__wrapper, .about-section {
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .slider__item__photo {
     max-width: 375px;
-}
-
-.slider__buttons {
-    position: absolute;
-    right: 0;
-    margin-top: -5.2rem;
-    height: 4.8rem;
-    background-color: black;
-}
-
-.slider__buttons > button {
-    display: inline-block;
-    width: 4.8rem;
-    height: 4.8rem;
-    margin: 0;
-    padding: 0;
-
-    background-color: black;
-    border: none;
-    background-repeat: no-repeat;
-    background-position: center;
-    cursor: pointer;
-}
-
-.slider__buttons > button:hover {
-    background-color: hsl(0, 0%, 27%);
-    transition: 0.3s;
-}
-
-.slider__buttons > button:focus {
-    background-color: hsl(0, 0%, 27%);
-    outline-color: hsl(0, 0%, 27%);
-    outline-width: 0.5px;
-}
-
-.slider__buttons-right {
-    background-image: url('./images/icon-angle-right.svg');
-}
-
-.slider__buttons-left {
-    background-image: url('./images/icon-angle-left.svg');  
 }
 
 .slider__item__text {
@@ -173,6 +135,10 @@ h1, h2, h3, h4, h5, h6, p {
     transition: 0.3s;
 }
 
+.slider__buttons {
+    display: none;
+}
+
 .about__image-block > img {
     max-width: 375px;
 }
@@ -191,84 +157,180 @@ h1, h2, h3, h4, h5, h6, p {
 
 /*-------------------DESKTOP--------------------*/
 
-/* @media (min-width: 1100px) {
+@media (min-width: 1000px) {
 
-    html {
-        font-size: 15px;
+    .nav, .header-wrapper, .main-wrapper {
+        width: 100%;
+        max-width: 1440px;
     }
 
-    body {
-        background-color: lavender;
-    }
-
-    /* .main {
-        position: relative;
-    } */
-/*
-    .main-wrapper {
-        min-width: 1100px;
-    }/*кажется не используется*/
-/*
     .nav__burger-button {
         display: none;
     }
 
     .logo {
-        height: 1rem;
+        height: 1.5rem;
     }
 
     .nav {
         justify-content: flex-start;
-        padding-left: 4rem;
+        padding-top: 7.5rem;
+        padding-left: 7rem;
     }
 
     .logo {
-        margin-right: 3.5rem;
+        margin-right: 5.5rem;
     }                         /*увеличить размер??*/
-/*
+
     .nav__desktop-menu {
         visibility: visible;
+        overflow: visible;
         list-style: none;
         padding-left: 0;
-        padding-top: 0.1rem;
+        /* padding-top: 0.1rem; */
         margin: 0;
         display: flex;
     }
 
     .desktop-menu__item a {
-        margin-right: 2rem;
+        margin-right: 3.5rem;
         text-decoration: none;
         text-transform: lowercase;
-        font-size: 1rem;
+        font-size: 1.1rem;
+        line-height: 1;
         font-weight: 500;
         color: white;
     }
 
-    .desktop-menu__item a:hover {/*псевдоэлемент??????*//*
-        padding-bottom: 0.5rem;
-        border-bottom: 3px solid white;
-        max-width: 1%; /*не работает. можно ли ограничить размер рамки*/
-    /*}
-/*
-    .slider__wrapper {
-        max-width: 1440px;
+    .desktop-menu__item:hover {
+        position: relative;
     }
 
+    .desktop-menu__item:hover::before {
+        position: absolute;
+        content: '';
+        height: 0.2rem;
+        width: 1.5rem;
+        background-color: white;
+        top: 1.8rem;
+        right: 50%;
+        transform: translate(-60%);
+    }
+
+    /*------------------------*/
+
     .slider__item {
+        /* border: 3px solid yellow; */
         display: flex;
         flex-wrap: nowrap;
+        justify-content: space-between;
+    }
+
+    .slider__item__photo {
+        /* border: 3px solid greenyellow; */
+        min-width: 60%;
+        overflow: hidden;
+    }
+
+    .slider__item__photo img {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .slider__item__text {
+        position: relative;
+        min-width: 40%;
+        /* border: 3px solid tomato; */
+        padding: 10% 5%;
+    }
+
+    .slider__item__text-heading {
+        font-size: 3.5rem;
+        font-weight: 600;
+        letter-spacing: -0.2rem;
+    }
+
+    .slider__item__text-paragraph {
+        font-size: 1.2rem;
+    }
+
+    .slider__item__text-link {
+        max-width: 63%;
+        margin-top: 4rem;
+    }
+
+    .slider__buttons {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        height: 7rem;
+        background-color: black;
+    }
+    
+    .slider__buttons > button {
+        display: inline-block;
+        width: 7rem;
+        height: 7rem;
+        margin: 0;
+        padding: 0;
+    
+        background-color: black;
+        border: none;
+        background-repeat: no-repeat;
+        background-position: center;
+        cursor: pointer;
+    }
+    
+    .slider__buttons > button:hover {
+        background-color: hsl(0, 0%, 27%);
+        transition: 0.3s;
+    }
+    
+    .slider__buttons > button:focus {
+        background-color: hsl(0, 0%, 27%);
+        outline-color: hsl(0, 0%, 27%);
+        outline-width: 0.5px;
+    }
+    
+    .slider__buttons-right {
+        background-image: url('./images/icon-angle-right.svg');
+    }
+    
+    .slider__buttons-left {
+        background-image: url('./images/icon-angle-left.svg');  
     }
 
     .hidden {
         display: none;
+    } /*убрать потом*/
+
+    .about-section {
+        display: flex;
+        flex-wrap: nowrap;
     }
 
-    .slider__item__photo {
-        width: 50%;
+    .about__image-block {
+        width: 30%;
+        overflow: hidden;
     }
 
-    .slider__item__text {
+    .about__image-block img {
+        min-width: 100%;
+        min-height: 100%;
+    }
+
+    .about__text-block {
         width: 40%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding-left: 4.5rem;
+        padding-right: 4.5rem;
     }
 
-} */
+    .about__text-block__heading {
+        margin-bottom: 1.5rem;
+    }
+
+} 
