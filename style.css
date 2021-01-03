@@ -49,12 +49,48 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 .nav__desktop-menu {
+    list-style: none;
     width: 1px;
     visibility: hidden;
+    overflow: hidden;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
+
+.desktop-menu__item a {
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 1.3rem;
+    line-height: 1;
+    font-weight: 600;
+    color: black;
+}
+
+.menu-active > li {
+    margin-left: 3rem;
+}
+
+.menu-active {
+    transition: 0.4s;
+    transform: scaleX(1);
+
+    visibility: visible;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 10rem;
+    line-height: 1;
+    padding: 0.3rem 2.5rem 0;
+    background-color: #fff;
+
+    list-style: none;
+    margin: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
 
 .nav__burger-button {
     background-color: transparent;
@@ -74,6 +110,28 @@ h1, h2, h3, h4, h5, h6, p {
     outline-width: 0.5px;
 }
 
+.nav__burger-button-close {
+    display: none;
+    background-color: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+    height: 14px;
+    width: 20px;    
+}
+
+.close-button-active {
+    display: block;
+    height: 14px;
+    width: 20px;
+    z-index: 10;
+}
+
+.nav__burger-button-close:focus {
+    outline-color: hsl(0, 0%, 63%);
+    outline-width: 0.5px;
+}
+
 .slider__wrapper, .about-section {
     width: 100%;
     margin-left: auto;
@@ -82,6 +140,13 @@ h1, h2, h3, h4, h5, h6, p {
 
 .slider__item__photo {
     max-width: 375px;
+    background-color: hsl(0, 0%, 63%);
+    object-fit: contain;
+    line-height: 0;
+}
+
+.slider__item__photo img {
+    width: 100%;
 }
 
 .slider__item__text {
@@ -105,14 +170,15 @@ h1, h2, h3, h4, h5, h6, p {
 
 .slider__item__text-link {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 63%;
+    align-content: center;
     text-decoration: none;
     margin-top: 4.5rem;
+    transition: 0.4s;
 }
 
 .link--text {
+    margin-top: 0.2rem;
+    margin-right: 2.5rem;
     text-decoration: none;
     text-transform: uppercase;
     letter-spacing: 0.7rem;
@@ -127,20 +193,26 @@ h1, h2, h3, h4, h5, h6, p {
 
 .slider__item__text-link:hover > .link--text {
     color: hsl(0, 0%, 63%);
-    transition: 0.3s;
+    transition: all 0.4s;
 }
 
 .slider__item__text-link:hover > .link--image {
     fill: hsl(0, 0%, 63%);
-    transition: 0.3s;
+    transform: translate(2rem);
+    transition: all 0.4s;
 }
 
 .slider__buttons {
     display: none;
 }
 
+.about__image-block {
+    object-fit: contain;
+    line-height: 0;
+}
+
 .about__image-block > img {
-    max-width: 375px;
+    width: 100%;
 }
 
 .about__text-block {
@@ -164,8 +236,12 @@ h1, h2, h3, h4, h5, h6, p {
         max-width: 1440px;
     }
 
-    .nav__burger-button {
+    .nav__burger-button, .nav__burger-button-close {
         display: none;
+    }
+
+    .menu-active {
+        background-color: transparent;
     }
 
     .logo {
@@ -180,24 +256,19 @@ h1, h2, h3, h4, h5, h6, p {
 
     .logo {
         margin-right: 5.5rem;
-    }                         /*увеличить размер??*/
+    } 
 
     .nav__desktop-menu {
         visibility: visible;
         overflow: visible;
         list-style: none;
         padding-left: 0;
-        /* padding-top: 0.1rem; */
         margin: 0;
         display: flex;
     }
 
     .desktop-menu__item a {
         margin-right: 3.5rem;
-        text-decoration: none;
-        text-transform: lowercase;
-        font-size: 1.1rem;
-        line-height: 1;
         font-weight: 500;
         color: white;
     }
@@ -217,19 +288,15 @@ h1, h2, h3, h4, h5, h6, p {
         transform: translate(-60%);
     }
 
-    /*------------------------*/
-
     .slider__item {
-        /* border: 3px solid yellow; */
         display: flex;
         flex-wrap: nowrap;
-        justify-content: space-between;
     }
 
     .slider__item__photo {
-        /* border: 3px solid greenyellow; */
         min-width: 60%;
         overflow: hidden;
+        height: auto;
     }
 
     .slider__item__photo img {
@@ -240,7 +307,6 @@ h1, h2, h3, h4, h5, h6, p {
     .slider__item__text {
         position: relative;
         min-width: 40%;
-        /* border: 3px solid tomato; */
         padding: 10% 5%;
     }
 
@@ -300,10 +366,6 @@ h1, h2, h3, h4, h5, h6, p {
     .slider__buttons-left {
         background-image: url('./images/icon-angle-left.svg');  
     }
-
-    .hidden {
-        display: none;
-    } /*убрать потом*/
 
     .about-section {
         display: flex;
