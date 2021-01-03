@@ -1,3 +1,3 @@
-# roompage-frntnd-mentror
+# room landing page
 
-https://ir-afn.github.io/roompage-frntnd-mentror/
+https://ir-afn.github.io/roompage-frntnd-mentor/
